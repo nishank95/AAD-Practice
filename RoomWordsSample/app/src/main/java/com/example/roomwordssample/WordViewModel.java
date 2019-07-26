@@ -11,7 +11,6 @@ import java.util.List;
 //
 //    Never pass context into ViewModel instances.
 //    Do not store Activity, Fragment, or View instances or their Context in the ViewModel.
-
 public class WordViewModel extends AndroidViewModel {
     private WordRepository mRepository;
     private LiveData<List<Word>> mAllWords;
