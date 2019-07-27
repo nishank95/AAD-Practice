@@ -681,6 +681,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chargingSwitch
 id checkbox
 id chronometer
 id clip_horizontal
@@ -708,6 +709,7 @@ id home
 id homeAsUp
 id icon
 id icon_group
+id idleSwitch
 id ifRoom
 id image
 id info
