@@ -16,10 +16,14 @@
 
 package com.android.example.notificationscheduler;
 
+import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,13 +42,59 @@ public class MainActivity extends AppCompatActivity {
      * onClick method that schedules the jobs based on the parameters set.
      */
     public void scheduleJob(View view) {
+        RadioGroup networkOptions = findViewById(R.id.networkOptions);
+        // Get the selected network ID and save it in an integer variable.
+        int selectedNetworkID = networkOptions.getCheckedRadioButtonId();
+        // initialize mScheduler
+        mScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
 
+
+        // create an integer variable for the selected network option.
+        // Set the variable to the default network option, which is NETWORK_TYPE_NONE
+        int selectedNetworkOption = JobInfo.NETWORK_TYPE_NONE;
+
+        switch(selectedNetworkID){
+            case R.id.noNetwork:
+                selectedNetworkOption = JobInfo.NETWORK_TYPE_NONE;
+                break;
+            case R.id.anyNetwork:
+                selectedNetworkOption = JobInfo.NETWORK_TYPE_ANY;
+                break;
+            case R.id.wifiNetwork:
+                selectedNetworkOption = JobInfo.NETWORK_TYPE_UNMETERED;
+                break;
+        }
+
+        ComponentName serviceName = new ComponentName(getPackageName(),
+                NotificationJobService.class.getName());
+        //  The first parameter is the JOB_ID. The second parameter is the ComponentName
+        //  for the JobService you created.
+        JobInfo.Builder builder = new JobInfo.Builder(JOB_ID,serviceName)
+                .setRequiredNetworkType(selectedNetworkOption);
+        boolean constraintSet = selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE;
+        // Call schedule() on the JobScheduler object. Use the build() method to pass in the JobInfo object.
+        if(constraintSet) {
+            //Schedule the job and notify the user
+            JobInfo myJobInfo = builder.build();
+            mScheduler.schedule(myJobInfo);
+            Toast.makeText(this, "Job Scheduled, job will run when " +
+                    "the constraints are met.", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Please set at least one constraint",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
      * onClick method for cancelling all existing jobs.
      */
     public void cancelJobs(View view) {
-
+        //  check whether the JobScheduler object is null. If not, call cancelAll() on the
+        //  object to remove all pending jobs. Also reset the JobScheduler to null
+        if (mScheduler!=null){
+            mScheduler.cancelAll();
+            mScheduler = null;
+            Toast.makeText(this, "Jobs cancelled", Toast.LENGTH_SHORT).show();
+        }
     }
 }
