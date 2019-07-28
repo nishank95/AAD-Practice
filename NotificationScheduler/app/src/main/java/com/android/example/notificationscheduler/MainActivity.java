@@ -23,13 +23,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final int JOB_ID = 0;
     private JobScheduler mScheduler;
+    private SeekBar mSeekBar;
+
 
     //Switches for setting job options
     private Switch mDeviceIdleSwitch;
@@ -41,6 +45,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mDeviceIdleSwitch = findViewById(R.id.idleSwitch);
         mDeviceChargingSwitch = findViewById(R.id.chargingSwitch);
+        mSeekBar = findViewById(R.id.seekBar);
+        final TextView seekBarProgress = findViewById(R.id.seekBarProgress);
+        mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                if (i > 0){
+                    seekBarProgress.setText(i + " s");
+                }else {
+                    seekBarProgress.setText("Not Set");
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
     }
 
@@ -53,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
         int selectedNetworkID = networkOptions.getCheckedRadioButtonId();
         // initialize mScheduler
         mScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-
+        // create an int to store the seek bar's progress
+        int seekBarInteger = mSeekBar.getProgress();
+        // create a boolean variable that's true if the seek bar has an integer value greater than 0
+        boolean seekBarSet = seekBarInteger > 0;
 
         // create an integer variable for the selected network option.
         // Set the variable to the default network option, which is NETWORK_TYPE_NONE
@@ -79,9 +108,14 @@ public class MainActivity extends AppCompatActivity {
                 .setRequiredNetworkType(selectedNetworkOption)
                 .setRequiresDeviceIdle(mDeviceIdleSwitch.isChecked())
                 .setRequiresCharging(mDeviceChargingSwitch.isChecked());
+        //  if seekBarSet is true, call setOverrideDeadline() on the JobInfo.Builder
+        if (seekBarSet) {
+            // The parameter is in milliseconds, and you want the user to set the deadline in seconds
+            builder.setOverrideDeadline(seekBarInteger * 1000);
+        }
         // code that sets constraintSet to consider the new constraints
         boolean constraintSet = (selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE)
-                || mDeviceChargingSwitch.isChecked() || mDeviceIdleSwitch.isChecked();
+                || mDeviceChargingSwitch.isChecked() || mDeviceIdleSwitch.isChecked() || seekBarSet;
         // Call schedule() on the JobScheduler object. Use the build() method to pass in the JobInfo object.
         if(constraintSet) {
             //Schedule the job and notify the user
