@@ -3,6 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7b3a344c-b3cc-49f6-a412-918f5ec21992" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../NotificationScheduler/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NotificationScheduler/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes/com/example/android/SimpleCalc/CalculatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes/com/example/android/SimpleCalc/CalculatorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/android/SimpleCalc/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/android/SimpleCalc/CalculatorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/example/android/SimpleCalc/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+            <state relative-caret-position="325">
+              <caret line="141" column="1" lean-forward="true" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -202,18 +212,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CalculatorTest - 2019.07.29 at 00h 49m 00s.xml">
-      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest - 2019.07.29 at 00h 49m 25s.xml">
-      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest - 2019.07.29 at 00h 50m 11s.xml">
-      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="CalculatorTest - 2019.07.29 at 01h 05m 38s.xml">
-      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
-    </history-entry>
     <history-entry file="CalculatorTest - 2019.07.29 at 01h 10m 50s.xml">
       <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
     </history-entry>
@@ -230,6 +228,18 @@
       <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
     </history-entry>
     <history-entry file="CalculatorTest - 2019.07.29 at 01h 16m 30s.xml">
+      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.29 at 01h 17m 23s.xml">
+      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.29 at 01h 17m 54s.xml">
+      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.29 at 01h 19m 25s.xml">
+      <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="CalculatorTest - 2019.07.29 at 01h 26m 04s.xml">
       <configuration name="CalculatorTest" configurationId="AndroidJUnit" />
     </history-entry>
   </component>
@@ -266,8 +276,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/example/android/SimpleCalc/CalculatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+        <state relative-caret-position="325">
+          <caret line="141" column="1" lean-forward="true" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
