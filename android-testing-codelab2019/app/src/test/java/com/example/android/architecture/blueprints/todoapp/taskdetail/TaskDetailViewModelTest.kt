@@ -135,6 +135,24 @@ class TaskDetailViewModelTest {
     @Test
     fun loadTask_loading() {
         // TODO
+        // Pause dispatcher so we can verify initial values
+        mainCoroutineRule.pauseDispatcher()
+
+        // Load the task in the viewmodel
+        taskDetailViewModel.start(task.id)
+        
+        // Progress indicator is shown
+        assertThat(getValue(taskDetailViewModel.dataLoading)).isTrue();
+        // With the TestCoroutineDispatcher in place, now we can call
+        // pauseDispatcher and resumeDispatcher at will.
+
+        // Execute pending coroutines actions
+        mainCoroutineRule.resumeDispatcher()
+
+
+        // Progress indicator is hidden
+        assertThat(getValue(taskDetailViewModel.dataLoading)).isFalse()
+
     }
 
     @Test
