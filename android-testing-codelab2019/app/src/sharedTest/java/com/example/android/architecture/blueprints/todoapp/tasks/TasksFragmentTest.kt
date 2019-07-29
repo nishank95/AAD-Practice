@@ -67,12 +67,28 @@ class TasksFragmentTest {
     fun clickAddTaskButton_navigateToAddEditFragment() {
         // GIVEN - On the home screen
         // TODO
-
+        val scenario = launchFragmentInContainer<TasksFragment>(Bundle(),R.style.AppTheme);
+        val navController = mock(NavController::class.java)
+        /*
+         We just need to interact with the tasks fragment. With the FragmentScenario we can
+         launch any fragment in a container (which is nothing but an empty activity):
+        * */
+        scenario.onFragment {
+            Navigation.setViewNavController(it.view!!, navController);
+        }
         // WHEN - Click on the "+" button
         // TODO
 
+        /*
+        Navigate to the add/edit screen using the Espresso API, clicking on the FAB:
+        * */
+        onView(withId(R.id.fab_add_task)).perform(click());
+
         // THEN - Verify that we navigate to the add screen
         // TODO
+        TasksFragmentDirections.actionTasksFragmentToAddEditTaskFragment(
+                 null, getApplicationContext<Context>().getString(R.string.add_task));
+
     }
 
     @Test

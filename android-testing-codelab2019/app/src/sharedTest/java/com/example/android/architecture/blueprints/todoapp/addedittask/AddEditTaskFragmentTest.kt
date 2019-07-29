@@ -99,7 +99,15 @@ class AddEditTaskFragmentTest {
 
         // THEN - Verify that the repository saved the task
         // TODO
-    }
+        /*
+        * The repository uses suspend functions so in order to access it from tests you
+        * need a blocking mechanism. We use the TasksRepository.getTasksBlocking() extension
+        * function for this.
+        * */
+        val tasks = (repository.getTasksBlocking(true) as Result.Success).data
+        assertEquals(tasks.size,1);
+        assertEquals(tasks[0].title, "title")
+        assertEquals(tasks[0].description, "description")    }
 
     @Test
     fun validTask_navigatesBack() {

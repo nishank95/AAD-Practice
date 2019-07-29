@@ -140,7 +140,7 @@ class TaskDetailViewModelTest {
 
         // Load the task in the viewmodel
         taskDetailViewModel.start(task.id)
-        
+
         // Progress indicator is shown
         assertThat(getValue(taskDetailViewModel.dataLoading)).isTrue();
         // With the TestCoroutineDispatcher in place, now we can call
